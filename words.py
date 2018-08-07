@@ -188,7 +188,7 @@ print("the age of {0} ia {1}. {0}'s birthday is on {2}".format('Nimesh',26,'febr
 """
 
 # exceptions
-
+"""
 def excprogram():    
     try:
         while True:
@@ -208,3 +208,35 @@ def excprogram():
         #print(y)
 if __name__ == '__main__':
     excprogram()
+"""
+
+#file
+#file: file path is required otherwise it gaves exception error
+# mode: read/write/append  text/binary always required to mentioned it\
+# encoding: text encoding
+import sys
+f= open('new.txt', mode='wt', encoding='utf-8') # write
+f.write("Hello this is first file!\n")
+f.write("Please write the file please")
+f= open('new.txt', mode='rt', encoding='utf-8') # read
+#print(f.read(32))
+print(f.readline())
+f.seek(0) # goes back to firstline of the file
+print(f.readline())
+f= open('new.txt', mode='at', encoding='utf-8') #append
+f.writelines(
+    ['this is me\n,'
+    'i am stranger to the dark,\n'
+    'Hard a way this is want to broken parts'])
+f.close()
+
+def main(filename):
+    #f= open('new.txt', mode='rt', encoding='utf-8')
+    with open('new.txt', mode='rt', encoding='utf-8') as f:
+        for line in f:
+        #  print(line)
+            sys.stdout.write(line)
+    
+
+if __name__=='__main__':
+    main(sys.argv[0])
